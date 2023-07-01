@@ -1,0 +1,32 @@
+﻿@using Borsa.WebUI.Identity;
+@model List<ApplicationUser>
+
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>User Role List</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Assign Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td><a href="/AdminRole/AssignRole/@item.Id" class="btn btn-outline-warning">Assign Role</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/AdminRole/RoleList" class="btn btn-outline-primary"> Role List</a>
+
+
+
